@@ -7,7 +7,7 @@ const CoverScreen: React.FC = () => {
 
   return (
     <div className="bg-[url('/images/cover.jpg')] w-full bg-cover bg-center flex flex-col items-center">
-      <div className="mt-20 bg-[url('/images/IMG_0462.jpg')] w-[50%] h-[280px] bg-cover rounded-full border-1 border-chocolate"></div>
+      <div className="mt-20 bg-[url('/images/gallery/11.jpg')] w-[50%] h-[280px] bg-cover rounded-full border-1 border-chocolate"></div>
       <div className="mt-3 font-cinzel uppercase tracking-[2px] leading-[3.2em] text-[12px]">
         Wedding Invitation
       </div>
