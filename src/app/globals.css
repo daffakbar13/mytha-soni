@@ -1,26 +1,106 @@
 @import "tailwindcss";
+@import "simple-line-icons/css/simple-line-icons.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@font-face {
+  font-family: Cinzel;
+  font-style: normal;
+  font-display: swap;
+  src: url("https://fonts.gstatic.com/s/cinzel/v23/8vIJ7ww63mVu7gt79mT7PkRXMw.woff2")
+    format("woff2");
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@font-face {
+  font-family: Vidaloka;
+  font-style: normal;
+  font-display: swap;
+  src: url("https://fonts.gstatic.com/s/vidaloka/v18/7cHrv4c3ipenMKlEavs7wH8Dnzcj.woff2")
+    format("woff2");
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@font-face {
+  font-family: Belleza;
+  font-style: normal;
+  font-display: swap;
+  src: url("https://fonts.gstatic.com/s/belleza/v17/0nkoC9_pNeMfhX4BhcH4ai7oqP4.woff2")
+    format("woff2");
+}
+
+@font-face {
+  font-family: ZCOOL XiaoWei;
+  font-style: normal;
+  font-display: swap;
+  src: url("https://fonts.gstatic.com/s/zcoolxiaowei/v14/i7dMIFFrTRywPpUVX9_RJyM1UFWaHi6WZ3Q.woff2")
+    format("woff2");
+}
+
+@font-face {
+  font-family: Gilda Display;
+  font-style: normal;
+  font-display: swap;
+  src: url("https://fonts.gstatic.com/s/gildadisplay/v18/t5tmIRoYMoaYG0WEOh7HwMeR3T7Pr7GEch8.woff2")
+    format("woff2");
+}
+
+@font-face {
+  font-family: Caudex;
+  font-style: normal;
+  font-display: swap;
+  src: url("https://fonts.gstatic.com/s/caudex/v17/esDT311QOP6BJUrwdteUkp8DOJKuGA.woff2")
+    format("woff2");
+}
+
+@font-face {
+  font-family: Imperial Script;
+  font-style: normal;
+  font-display: swap;
+  src: url("https://fonts.gstatic.com/s/imperialscript/v6/5DCPAKrpzy_H98IV2ISnZBbGrVNfOuPknNhGNw.woff2")
+    format("woff2");
+}
+
+@font-face {
+  font-family: Zen Antique;
+  font-style: normal;
+  font-display: swap;
+  src: url("https://fonts.gstatic.com/s/zenantique/v13/AYCPpXPnd91Ma_Zf-Ri2JUJt5vOt5o_H.woff2")
+    format("woff2");
+}
+
+@font-face {
+  font-family: Aboreto;
+  font-style: normal;
+  font-display: swap;
+  src: url("https://fonts.gstatic.com/s/aboreto/v2/5DCXAKLhwDDQ4N8bpKPUAk6t1Sc.woff2")
+    format("woff2");
+}
+
+@theme {
+  --color-chocolate: #6c3f40;
+  --color-maroon: #7c2527;
+  --color-khaki: #d4bd94;
+  --color-linen: #fff0e5;
+  --color-bronze: #ae8c50;
+  --font-cinzel: "Cinzel", "sans-serif";
+  --font-vidaloka: "Vidaloka", "sans-serif";
+  --font-belleza: "Belleza", "sans-serif";
+  --font-xiaowei: "ZCOOL XiaoWei", "sans-serif";
+  --font-gilda: "Gilda Display", "sans-serif";
+  --font-caudex: "Caudex", "sans-serif";
+  --font-imperial-script: "Imperial Script", "sans-serif";
+  --font-zen-antique: "Zen Antique", "sans-serif";
+  --font-aboreto: "Aboreto", "sans-serif";
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply text-maroon;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+input,
+textarea {
+  @apply w-full px-2 py-1 text-sm text-gray-600 border border-gray-300 rounded-md;
+}
+
+.button {
+  @apply flex gap-1 px-3 py-[10px] uppercase rounded-md bg-maroon text-white font-xiaowei text-xs leading-[1] cursor-pointer w-max;
 }
