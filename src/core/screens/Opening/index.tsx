@@ -8,32 +8,58 @@ import { motion } from "framer-motion";
 
 const OpeningScreen: React.FC = () => {
   const { profile, weddingDate } = useGlobalStore();
+  const delay = 11;
+  const duration = 1.2;
+  const scaleFrom = { scale: 0.3 };
+  const scaleTo = { scale: 1 };
 
   return (
-    <div className="relative bg-[url('/images/opening.jpg')] py-[30px] px-[20px] w-full aspect-[9/16] bg-cover bg-center">
+    <section className="relative bg-[url('/images/opening.jpg')] py-[30px] px-[20px] w-full aspect-[9/16] bg-cover bg-center">
       <motion.div
-        initial={{ opacity: 0, scale: 0.3 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 11, duration: 1.2 }}
-        className="relative flex flex-col items-center z-10"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay, duration }}
+        className="relative z-10 flex flex-col items-center"
       >
-        <Image
-          src="/images/logo-nama.png"
-          alt="logo-nama"
-          width={190}
-          height={0}
-          priority
-          className="w-[72%] h-auto mt-[90px]"
-        />
-        <div className="text-xs font-cinzel tracking-[2px] font-medium mt-6">
+        <motion.div
+          initial={scaleFrom}
+          whileInView={scaleTo}
+          transition={{ duration }}
+          className="w-[72%]"
+        >
+          <Image
+            src="/images/logo-nama.png"
+            alt="logo-nama"
+            width={190}
+            height={0}
+            priority
+            className="w-full h-auto mt-[90px]"
+          />
+        </motion.div>
+        <motion.p
+          initial={scaleFrom}
+          whileInView={scaleTo}
+          transition={{ duration }}
+          className="text-xs font-cinzel tracking-[2px] font-medium mt-6"
+        >
           THE WEDDING OF
-        </div>
-        <div className="font-vidaloka text-[28px] leading-[0.6em] uppercase font-medium mt-6">
+        </motion.p>
+        <motion.p
+          initial={scaleFrom}
+          whileInView={scaleTo}
+          transition={{ duration }}
+          className="font-vidaloka text-[28px] leading-[0.6em] uppercase font-medium mt-6"
+        >
           {profile.cpw.shortName} & {profile.cpp.shortName}
-        </div>
-        <div className="text-xs font-cinzel tracking-[3px] font-medium mt-5">
+        </motion.p>
+        <motion.p
+          initial={scaleFrom}
+          whileInView={scaleTo}
+          transition={{ duration }}
+          className="text-xs font-cinzel tracking-[3px] font-medium mt-5"
+        >
           {dayjs(weddingDate).format("DD . MM . YYYY")}
-        </div>
+        </motion.p>
       </motion.div>
       <video
         autoPlay
@@ -44,7 +70,7 @@ const OpeningScreen: React.FC = () => {
         <source src="/videos/opening.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
-    </div>
+    </section>
   );
 };
 

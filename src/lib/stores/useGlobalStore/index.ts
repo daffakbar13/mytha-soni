@@ -53,7 +53,7 @@ const useGlobalStore = create<UseGlobalStore>((set, get) => ({
   },
   weddingDate: dayjs("2025-06-18").toDate(),
   weddingAddress: `
-    Dsn Lebakwangi RT 02/RW 03,\n
+    Dsn Lebakwangi RT 06/RW 02,\n
     Desa mekarwangi,\n
     Kecamatan sukamantri,\n
     Kabupaten Ciamis
