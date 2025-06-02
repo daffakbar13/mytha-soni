@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { NextPage } from "next";
 import ClosingScreen from "@inv/core/screens/ClosingScreen";
 import CountDownScreen from "@inv/core/screens/CountDown";
@@ -13,14 +14,48 @@ import WeddingEventScreen from "@inv/core/screens/WeddingEvent";
 import WeddingGiftScreen from "@inv/core/screens/WeddingGift";
 import WishesScreen from "@inv/core/screens/Wishes";
 import useGlobalStore from "@inv/lib/stores/useGlobalStore";
+import Backsound from "@inv/core/components/Backsound";
 
 const Page: NextPage = () => {
-  const { isOpen } = useGlobalStore();
+  const { isOpen, openInvitation } = useGlobalStore();
+
+  React.useEffect(() => {
+    const handler = () => {
+      const isFullScreen = !!(
+        document.fullscreenElement ||
+        (document as any).webkitFullscreenElement ||
+        (document as any).mozFullScreenElement ||
+        (document as any).msFullscreenElement
+      );
+
+      if (!isFullScreen) {
+        openInvitation();
+      }
+    };
+    const listeners = [
+      "fullscreenchange",
+      "webkitfullscreenchange",
+      "mozfullscreenchange",
+      "MSFullscreenChange",
+    ];
+
+    listeners.forEach((listener) => {
+      document.addEventListener(listener, handler);
+    });
+
+    return () => {
+      listeners.forEach((listener) => {
+        document.removeEventListener(listener, handler);
+      });
+    };
+  }, [openInvitation]);
+
   return (
     <>
       {!isOpen && <CoverScreen />}
       {isOpen && (
         <div className="bg-[url('/images/parallax.jpg')] bg-cover w-full overflow-y-scroll overflow-x-hidden">
+          <Backsound />
           <OpeningScreen />
           <SurahScreen />
           <ProfileScreen />

@@ -28,6 +28,7 @@ interface States {
 
 interface Mutations {
   openInvitation(): void;
+  handleFullscreen(): void;
 }
 
 export default interface UseGlobalStore extends States, Mutations {}

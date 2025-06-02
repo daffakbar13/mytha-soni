@@ -37,7 +37,7 @@ const WeddingEventScreen: React.FC = () => {
         <p className="font-vidaloka text-[25px] text-bronze uppercase mt-8">
           Akad Nikah
         </p>
-        <p className="font-caudex text-[15px]">Pukul 07.00 WIB</p>
+        <p className="font-caudex text-[15px]">Pukul 08.00 WIB - 10.00 WIB</p>
         <div className="flex items-center w-[70%] gap-2 my-8">
           <hr className="grow" />
           <i aria-hidden="true" className="simple-line-icons icon-diamond"></i>
@@ -46,7 +46,7 @@ const WeddingEventScreen: React.FC = () => {
         <p className="font-vidaloka text-[25px] text-bronze uppercase">
           Resepsi Nikah
         </p>
-        <p className="font-caudex text-[15px]">Pukul 11.00 WIB - 13.00 WIB</p>
+        <p className="font-caudex text-[15px]">Pukul 10.00 WIB - Selesai</p>
         <i
           aria-hidden="true"
           className="my-8 text-4xl simple-line-icons icon-location-pin"
@@ -54,7 +54,7 @@ const WeddingEventScreen: React.FC = () => {
         <p className="font-xiaowei text-[14px] text-center w-[70%]">
           Bertempat di:
           <br />
-          <strong>Gedung Dislaikad Manunggal</strong>
+          <strong>Kediaman Mempelai Wanita</strong>
           <br />
           {weddingAddress}
         </p>

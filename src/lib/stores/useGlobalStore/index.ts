@@ -3,10 +3,39 @@ import dayjs from "@inv/lib/utils/dayjs";
 
 import type UseGlobalStore from "./types";
 
-const useGlobalStore = create<UseGlobalStore>((set) => ({
+const useGlobalStore = create<UseGlobalStore>((set, get) => ({
   isOpen: false,
-  openInvitation() {
-    set((s) => ({ isOpen: !s.isOpen }));
+  async openInvitation() {
+    const { isOpen, handleFullscreen } = get();
+
+    if (!isOpen) {
+      await Promise.all(
+        ["/videos/opening.mp4", "/audios/backsound.mp3"].map((url) =>
+          fetch(url, { cache: "force-cache" })
+        )
+      );
+    }
+
+    set((s) => {
+      if (!s.isOpen) {
+        handleFullscreen();
+      }
+      return { isOpen: !s.isOpen };
+    });
+  },
+  handleFullscreen() {
+    const elem = document.body;
+    if (!elem) return;
+
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    } else if ("webkitRequestFullscreen" in elem) {
+      (elem as any).webkitRequestFullscreen();
+    } else if ("mozRequestFullScreen" in elem) {
+      (elem as any).mozRequestFullScreen();
+    } else if ("msRequestFullscreen" in elem) {
+      (elem as any).msRequestFullscreen();
+    }
   },
   profile: {
     cpp: {

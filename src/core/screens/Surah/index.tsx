@@ -1,16 +1,24 @@
 import Image from "next/image";
 
+import { motion } from "framer-motion";
+
 const SurahScreen: React.FC = () => {
   return (
     <div className="w-full bg-linen">
       <div className="flex flex-col items-center px-[20px] pb-[46px]">
-        <Image
-          src="/images/gallery/1.jpg"
-          alt="gallery-1"
-          width={320}
-          height={0}
-          className="w-full h-auto mt-[60px] rounded-[10px]"
-        />
+        <motion.div
+          initial={{ translateY: 100 }}
+          whileInView={{ translateY: 0 }}
+          transition={{ duration: 1.2 }}
+        >
+          <Image
+            src="/images/gallery/1.jpg"
+            alt="gallery-1"
+            width={320}
+            height={0}
+            className="w-full h-auto mt-[60px] rounded-[10px]"
+          />
+        </motion.div>
         <div className="text-[25px] font-cinzel uppercase font-medium mt-6">
           We Found Love
         </div>
