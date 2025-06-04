@@ -17,14 +17,21 @@ import useGlobalStore from "@inv/lib/stores/useGlobalStore";
 import Backsound from "@inv/core/components/Backsound";
 import usePreloadVideo from "@inv/lib/hooks/usePreloadVideo";
 import useFullScreen from "@inv/lib/hooks/useFullScreen";
+import usePreloadAudio from "@inv/lib/hooks/usePreloadAudio";
 
 const Page: NextPage = () => {
-  const { isOpen, isVideoOpeningLoaded, setIsVideoOpeningLoaded } =
-    useGlobalStore();
-  const isOpenAndReady = isOpen && isVideoOpeningLoaded;
+  const {
+    isOpen,
+    isVideoOpeningLoaded,
+    isBacksoundLoaded,
+    setIsVideoOpeningLoaded,
+    setIsBacksoundLoaded,
+  } = useGlobalStore();
+  const isOpenAndReady = isOpen && isVideoOpeningLoaded && isBacksoundLoaded;
 
   useFullScreen();
   usePreloadVideo("/videos/opening.mp4", () => setIsVideoOpeningLoaded(true));
+  usePreloadAudio("/audios/backsound.mp3", () => setIsBacksoundLoaded(true));
 
   return (
     <>

@@ -6,6 +6,7 @@ import type UseGlobalStore from "./types";
 const useGlobalStore = create<UseGlobalStore>((set, get) => ({
   isOpen: false,
   isVideoOpeningLoaded: false,
+  isBacksoundLoaded: false,
   async openInvitation() {
     const { handleFullscreen } = get();
 
@@ -18,6 +19,9 @@ const useGlobalStore = create<UseGlobalStore>((set, get) => ({
   },
   setIsVideoOpeningLoaded(value) {
     set({ isVideoOpeningLoaded: value });
+  },
+  setIsBacksoundLoaded(value) {
+    set({ isBacksoundLoaded: value });
   },
   handleFullscreen() {
     const elem = document.body;
