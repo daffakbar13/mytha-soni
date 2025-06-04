@@ -15,45 +15,21 @@ import WeddingGiftScreen from "@inv/core/screens/WeddingGift";
 import WishesScreen from "@inv/core/screens/Wishes";
 import useGlobalStore from "@inv/lib/stores/useGlobalStore";
 import Backsound from "@inv/core/components/Backsound";
+import usePreloadVideo from "@inv/lib/hooks/usePreloadVideo";
+import useFullScreen from "@inv/lib/hooks/useFullScreen";
 
 const Page: NextPage = () => {
-  const { isOpen, openInvitation } = useGlobalStore();
+  const { isOpen, isVideoOpeningLoaded, setIsVideoOpeningLoaded } =
+    useGlobalStore();
+  const isOpenAndReady = isOpen && isVideoOpeningLoaded;
 
-  React.useEffect(() => {
-    const handler = () => {
-      const isFullScreen = !!(
-        document.fullscreenElement ||
-        (document as any).webkitFullscreenElement ||
-        (document as any).mozFullScreenElement ||
-        (document as any).msFullscreenElement
-      );
-
-      if (!isFullScreen) {
-        openInvitation();
-      }
-    };
-    const listeners = [
-      "fullscreenchange",
-      "webkitfullscreenchange",
-      "mozfullscreenchange",
-      "MSFullscreenChange",
-    ];
-
-    listeners.forEach((listener) => {
-      document.addEventListener(listener, handler);
-    });
-
-    return () => {
-      listeners.forEach((listener) => {
-        document.removeEventListener(listener, handler);
-      });
-    };
-  }, [openInvitation]);
+  useFullScreen();
+  usePreloadVideo("/videos/opening.mp4", () => setIsVideoOpeningLoaded(true));
 
   return (
     <>
-      {!isOpen && <CoverScreen />}
-      {isOpen && (
+      {!isOpenAndReady && <CoverScreen />}
+      {isOpenAndReady && (
         <div className="bg-[url('/images/parallax.jpg')] bg-cover w-full overflow-y-scroll overflow-x-hidden">
           <Backsound />
           <OpeningScreen />

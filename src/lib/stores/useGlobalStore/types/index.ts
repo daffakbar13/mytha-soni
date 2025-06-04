@@ -7,6 +7,7 @@ interface BrideProfile {
 
 interface States {
   isOpen: boolean;
+  isVideoOpeningLoaded: boolean;
   profile: {
     cpw: BrideProfile;
     cpp: BrideProfile;
@@ -28,6 +29,7 @@ interface States {
 
 interface Mutations {
   openInvitation(): void;
+  setIsVideoOpeningLoaded(value: boolean): void;
   handleFullscreen(): void;
 }
 

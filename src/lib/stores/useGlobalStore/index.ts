@@ -5,16 +5,9 @@ import type UseGlobalStore from "./types";
 
 const useGlobalStore = create<UseGlobalStore>((set, get) => ({
   isOpen: false,
+  isVideoOpeningLoaded: false,
   async openInvitation() {
-    const { isOpen, handleFullscreen } = get();
-
-    if (!isOpen) {
-      await Promise.all(
-        ["/videos/opening.mp4", "/audios/backsound.mp3"].map((url) =>
-          fetch(url, { cache: "force-cache" })
-        )
-      );
-    }
+    const { handleFullscreen } = get();
 
     set((s) => {
       if (!s.isOpen) {
@@ -22,6 +15,9 @@ const useGlobalStore = create<UseGlobalStore>((set, get) => ({
       }
       return { isOpen: !s.isOpen };
     });
+  },
+  setIsVideoOpeningLoaded(value) {
+    set({ isVideoOpeningLoaded: value });
   },
   handleFullscreen() {
     const elem = document.body;

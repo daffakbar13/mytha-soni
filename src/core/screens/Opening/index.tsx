@@ -64,6 +64,7 @@ const OpeningScreen: React.FC = () => {
       <video
         autoPlay
         muted
+        playsInline
         width="600"
         className="absolute top-0 bottom-0 left-0 right-0 rounded-md shadow-md"
       >

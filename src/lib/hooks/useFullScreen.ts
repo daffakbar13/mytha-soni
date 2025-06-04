@@ -33,5 +33,5 @@ export default function useFullScreen() {
         document.removeEventListener(listener, handler);
       });
     };
-  }, [openInvitation]);
+  }, []);
 }
