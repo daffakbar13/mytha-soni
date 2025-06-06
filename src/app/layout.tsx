@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     siteName: "Mytha & Soni Wedding",
     images: [
       {
-        url: "https://mytha-soni.vercel.app/images/gallery/1.jpg",
+        url: "https://mytha-soni.vercel.app/images/gallery/4.jpg",
         width: 1200,
         height: 630,
         alt: "Mytha & Soni Wedding Invitation",
@@ -39,12 +39,12 @@ export const metadata: Metadata = {
     title: "Mytha & Soni - Wedding Invitation",
     description:
       "You're invited to our special day! Tap to view the details ❤️",
-    images: ["https://mytha-soni.vercel.app/images/gallery/1.jpg"],
+    images: ["https://mytha-soni.vercel.app/images/gallery/4.jpg"],
   },
   icons: {
-    icon: "/images/gallery/1.jpg",
-    shortcut: "/images/gallery/1.jpg",
-    apple: "/images/gallery/1.jpg",
+    icon: "/images/gallery/4.jpg",
+    shortcut: "/images/gallery/4.jpg",
+    apple: "/images/gallery/4.jpg",
   },
 };
 
