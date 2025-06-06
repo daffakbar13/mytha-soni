@@ -15,6 +15,15 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      {
+        source: "/",
+        destination: "/Tamu-Undangan",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

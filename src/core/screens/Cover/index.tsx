@@ -2,9 +2,13 @@
 
 import Spinner from "@inv/core/components/Spinner";
 import useGlobalStore from "@inv/lib/stores/useGlobalStore";
+import { useParams } from "next/navigation";
 
 const CoverScreen: React.FC = () => {
-  const { isOpen, profile, openInvitation } = useGlobalStore();
+  const { isOpen, profile, openInvitation, normalizeGuestName } =
+    useGlobalStore();
+  const { name = "guest" } = useParams();
+  const guestName = normalizeGuestName(String(name));
 
   return (
     <section className="bg-[url('/images/cover.jpg')] w-full bg-cover bg-center flex flex-col items-center">
@@ -16,7 +20,7 @@ const CoverScreen: React.FC = () => {
         {profile.cpw.shortName} & {profile.cpp.shortName}
       </div>
       <div className="mt-[30px] text-[13px]">Kepada Yth.</div>
-      <div className="font-belleza text-[18px]">Tamu Undangan</div>
+      <div className="font-belleza text-[18px]">{guestName}</div>
       <button
         className="mt-[10px] px-6 py-3 flex items-center gap-2 uppercase rounded-full bg-maroon font-xiaowei text-khaki text-[12px] leading-[1]"
         onClick={openInvitation}

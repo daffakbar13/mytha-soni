@@ -33,6 +33,7 @@ interface Mutations {
   setIsVideoOpeningLoaded(value: boolean): void;
   setIsBacksoundLoaded(value: boolean): void;
   handleFullscreen(): void;
+  normalizeGuestName(param: string | string[]): string;
 }
 
 export default interface UseGlobalStore extends States, Mutations {}

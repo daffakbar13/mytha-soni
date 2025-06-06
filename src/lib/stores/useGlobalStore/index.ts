@@ -37,6 +37,9 @@ const useGlobalStore = create<UseGlobalStore>((set, get) => ({
       (elem as any).msRequestFullscreen();
     }
   },
+  normalizeGuestName(param) {
+    return decodeURIComponent(String(param)).replace(/-/g, " ");
+  },
   profile: {
     cpp: {
       fullName: "Soni Firmansah",
