@@ -35,7 +35,18 @@ const Page: NextPage = () => {
 
   return (
     <>
-      {!isOpenAndReady && <CoverScreen />}
+      {!isOpenAndReady && (
+        <>
+          <CoverScreen />
+          <video
+            src="/videos/opening.mp4"
+            preload="auto"
+            playsInline
+            muted
+            className="hidden"
+          />
+        </>
+      )}
       {isOpenAndReady && (
         <div className="bg-[url('/images/parallax.jpg')] bg-cover w-full overflow-y-scroll overflow-x-hidden">
           <Backsound />
