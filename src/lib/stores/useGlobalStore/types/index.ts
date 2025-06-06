@@ -35,6 +35,7 @@ interface Mutations {
   handleFullscreen(): void;
   normalizeGuestName(param: string | string[]): string;
   copyToClipboard(text: string): () => Promise<void>;
+  generateGoogleCalendarLink(): void;
 }
 
 export default interface UseGlobalStore extends States, Mutations {}

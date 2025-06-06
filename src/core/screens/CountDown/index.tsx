@@ -7,7 +7,7 @@ import useGlobalStore from "@inv/lib/stores/useGlobalStore";
 import { motion } from "framer-motion";
 
 const CountDownScreen: React.FC = () => {
-  const { weddingDate } = useGlobalStore();
+  const { weddingDate, generateGoogleCalendarLink } = useGlobalStore();
   const [{ day, hour, minute, second }, setDate] = React.useState({
     day: 0,
     hour: 0,
@@ -75,6 +75,7 @@ const CountDownScreen: React.FC = () => {
           whileInView={{ translateX: 0 }}
           transition={{ duration }}
           className="px-5 py-[10px] uppercase rounded-full bg-khaki font-xiaowei text-[15px] leading-[1]"
+          onClick={generateGoogleCalendarLink}
         >
           Save The Date
         </motion.button>

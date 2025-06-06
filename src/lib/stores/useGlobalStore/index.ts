@@ -128,6 +128,21 @@ const useGlobalStore = create<UseGlobalStore>((set, get) => ({
       }
     };
   },
+  generateGoogleCalendarLink() {
+    const { weddingDate, weddingAddress } = get();
+    const from = dayjs(weddingDate).format("YYYYMMDD");
+    const to = dayjs(weddingDate).add(1, "d").format("YYYYMMDD");
+    const details = {
+      text: "Mytha & Soni's Wedding 💍",
+      details: "Join us to celebrate the wedding of Mytha and Soni!",
+      location: weddingAddress,
+      dates: [from, to].join("/"),
+    };
+    const params = new URLSearchParams(details);
+    const url = `https://www.google.com/calendar/render?action=TEMPLATE&${params.toString()}`;
+
+    window.open(url, "__blank");
+  },
 }));
 
 export default useGlobalStore;
