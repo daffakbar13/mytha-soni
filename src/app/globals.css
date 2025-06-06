@@ -104,3 +104,11 @@ textarea {
 .button {
   @apply flex gap-1 px-3 py-[10px] uppercase rounded-md bg-maroon text-white font-xiaowei text-xs leading-[1] cursor-pointer w-max;
 }
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

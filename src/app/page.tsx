@@ -48,7 +48,7 @@ const Page: NextPage = () => {
         </>
       )}
       {isOpenAndReady && (
-        <div className="bg-[url('/images/parallax.jpg')] bg-cover w-full overflow-y-scroll overflow-x-hidden">
+        <main className="bg-[url('/images/parallax.jpg')] bg-cover w-full overflow-y-scroll overflow-x-hidden scrollbar-hide">
           <Backsound />
           <OpeningScreen />
           <SurahScreen />
@@ -60,7 +60,7 @@ const Page: NextPage = () => {
           <WeddingGiftScreen />
           <WishesScreen />
           <ClosingScreen />
-        </div>
+        </main>
       )}
     </>
   );

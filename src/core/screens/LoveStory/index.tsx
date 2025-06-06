@@ -13,13 +13,20 @@ const LoveStoryScreen: React.FC = () => {
   return (
     <section className="relative bg-[url('/images/couple-garden.jpg')] px-10 py-10 pb-20">
       <div className="absolute top-0 bottom-0 left-0 right-0 opacity-[0.42] bg-linen"></div>
-      <Image
-        src="/images/dera.png"
-        alt="flower"
-        width={200}
-        height={0}
-        className="absolute z-20 h-auto -top-2 -right-20"
-      />
+      <motion.div
+        initial={{ rotate: 45 }}
+        whileInView={{ rotate: 0 }}
+        transition={{ duration }}
+        className="absolute z-20 -top-2 -right-20"
+      >
+        <Image
+          src="/images/dera.png"
+          alt="flower"
+          width={200}
+          height={0}
+          className="h-auto"
+        />
+      </motion.div>
       <div className="relative z-10">
         <motion.p
           initial={{ translateX: 50 }}
@@ -55,10 +62,22 @@ const LoveStoryScreen: React.FC = () => {
         </motion.p>
         {loveStories.map((l, i) => (
           <React.Fragment key={i}>
-            <p className="font-xiaowei text-[35px] mt-6">{l.title}</p>
-            <p className="mt-2 text-xs text-black font-caudex">
+            <motion.p
+              initial={{ translateX: 100 }}
+              whileInView={{ translateX: 0 }}
+              transition={{ duration }}
+              className="font-xiaowei text-[35px] mt-6"
+            >
+              {l.title}
+            </motion.p>
+            <motion.p
+              initial={{ translateX: 70 }}
+              whileInView={{ translateX: 0 }}
+              transition={{ duration }}
+              className="mt-2 text-xs text-black font-caudex"
+            >
               {l.description}
-            </p>
+            </motion.p>
           </React.Fragment>
         ))}
       </div>
