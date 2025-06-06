@@ -2,6 +2,7 @@
 
 import Head from "next/head";
 import dynamic from "next/dynamic";
+import { Toaster } from "react-hot-toast";
 
 import type RootLayoutProps from "./types";
 
@@ -32,6 +33,18 @@ const RootLayout: React.FC<RootLayoutProps> = (props) => {
       <body>
         <ReactQueryProvider>
           <MainLayout>{children}</MainLayout>
+          <Toaster
+            position="top-center"
+            toastOptions={{
+              success: {
+                style: {
+                  borderRadius: "10px",
+                  background: "#333",
+                  color: "#fff",
+                },
+              },
+            }}
+          />
         </ReactQueryProvider>
       </body>
     </html>

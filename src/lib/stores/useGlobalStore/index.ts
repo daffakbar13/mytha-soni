@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import toast from "react-hot-toast";
 import dayjs from "@inv/lib/utils/dayjs";
 
 import type UseGlobalStore from "./types";
@@ -117,6 +118,16 @@ const useGlobalStore = create<UseGlobalStore>((set, get) => ({
       `,
     },
   ],
+  copyToClipboard(text) {
+    return async () => {
+      try {
+        await navigator.clipboard.writeText(text);
+        toast.success("Copied to clipboard!");
+      } catch {
+        toast.error("Failed to copy!");
+      }
+    };
+  },
 }));
 
 export default useGlobalStore;

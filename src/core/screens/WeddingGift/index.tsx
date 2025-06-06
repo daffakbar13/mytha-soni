@@ -8,7 +8,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 const WeddingGiftScreen: React.FC = () => {
-  const { bankList } = useGlobalStore();
+  const { bankList, copyToClipboard } = useGlobalStore();
   const duration = 1.2;
 
   return (
@@ -79,6 +79,7 @@ const WeddingGiftScreen: React.FC = () => {
                   whileInView={{ translateX: 0 }}
                   transition={{ duration }}
                   className="button"
+                  onClick={copyToClipboard(b.accountNumber)}
                 >
                   <span>Salin {b.isBank ? "Nomor" : "Alamat"}</span>
                   <Image
