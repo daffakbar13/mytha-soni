@@ -142,7 +142,9 @@ const WishesScreen: React.FC = () => {
           className="w-full mt-6 bg-white rounded-lg overflow-hidden"
           onSubmit={handleSubmit}
         >
-          <p className="py-3 text-sm text-center">0 Comment</p>
+          <p className="py-3 text-sm text-center">
+            {wishes.data?.length || 0} Comment
+          </p>
           <hr />
           <div className="flex flex-col p-4 gap-3">
             <input type="text" name="name" id="name" placeholder="Nama" />
