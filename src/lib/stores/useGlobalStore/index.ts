@@ -81,7 +81,7 @@ const useGlobalStore = create<UseGlobalStore>((set, get) => ({
     },
     {
       accountNumber:
-        "Dsn Lebakwangi RT 02/RW 03, Desa mekarwangi, kecamatan sukamantri, kabupaten Ciamis",
+        "Dsn Lebakwangi RT 06/RW 02, Desa mekarwangi, kecamatan sukamantri, kabupaten Ciamis",
       accountName: "Mytha",
       bankName: "Kirim Kado",
       bankImage: "/images/gift.png",
