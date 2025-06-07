@@ -1,21 +1,18 @@
 namespace WishesDto {
   export interface Wish {
-    id: string
-    guest_id: string
-    group_id: string
-    name: string
-    description: string
-    status: number
-    createdAt: Date
+    id: string;
+    guest_id: string;
+    group_id: string;
+    name: string;
+    description: string;
+    status: number;
+    createdAt: Date;
   }
 
   export interface CreateWish {
-    guest_id: string
-    group_id: string
-    name: string
-    description: string
-    status: number
+    name: string;
+    description: string;
   }
 }
 
-export default WishesDto
+export default WishesDto;

@@ -6,6 +6,8 @@ interface BrideProfile {
 }
 
 interface States {
+  guestName: string;
+  isAdmin: boolean;
   isOpen: boolean;
   isVideoOpeningLoaded: boolean;
   isBacksoundLoaded: boolean;
@@ -36,6 +38,7 @@ interface Mutations {
   normalizeGuestName(param: string | string[]): string;
   copyToClipboard(text: string): () => Promise<void>;
   generateGoogleCalendarLink(): void;
+  setGuestName(param: string | string[]): void;
 }
 
 export default interface UseGlobalStore extends States, Mutations {}

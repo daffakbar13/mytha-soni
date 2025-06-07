@@ -5,6 +5,8 @@ import dayjs from "@inv/lib/utils/dayjs";
 import type UseGlobalStore from "./types";
 
 const useGlobalStore = create<UseGlobalStore>((set, get) => ({
+  guestName: "Tamu Undangan",
+  isAdmin: false,
   isOpen: false,
   isVideoOpeningLoaded: false,
   isBacksoundLoaded: false,
@@ -142,6 +144,13 @@ const useGlobalStore = create<UseGlobalStore>((set, get) => ({
     const url = `https://www.google.com/calendar/render?action=TEMPLATE&${params.toString()}`;
 
     window.open(url, "__blank");
+  },
+  setGuestName(param) {
+    const isAdmin = param == "5239";
+    set({
+      isAdmin,
+      guestName: isAdmin ? "Admin" : get().normalizeGuestName(param),
+    });
   },
 }));
 

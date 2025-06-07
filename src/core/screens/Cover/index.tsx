@@ -1,14 +1,18 @@
 "use client";
 
+import React from "react";
 import Spinner from "@inv/core/components/Spinner";
 import useGlobalStore from "@inv/lib/stores/useGlobalStore";
 import { useParams } from "next/navigation";
 
 const CoverScreen: React.FC = () => {
-  const { isOpen, profile, openInvitation, normalizeGuestName } =
+  const { guestName, isOpen, profile, openInvitation, setGuestName } =
     useGlobalStore();
-  const { name = "guest" } = useParams();
-  const guestName = normalizeGuestName(String(name));
+  const { name = "Tamu-Undangan" } = useParams();
+
+  React.useEffect(() => {
+    setGuestName(name);
+  }, [name]);
 
   return (
     <section className="bg-[url('/images/cover.jpg')] w-full bg-cover bg-center flex flex-col items-center">
