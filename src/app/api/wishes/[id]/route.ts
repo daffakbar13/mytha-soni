@@ -1,12 +1,15 @@
 import { ObjectId } from "mongodb";
-import { NextResponse } from "next/server";
 
 import WishesModel from "@inv/server/models/wishes";
+import { NextRequest, NextResponse } from "next/server";
 
-type Params = { params: { id: string } };
+interface Context {
+  params: { id: string };
+}
 
-export async function DELETE(_: Request, { params }: Params) {
-  const wishId = new ObjectId(params.id);
+export async function DELETE(_: NextRequest, context: any) {
+  const { id } = await (context as Context).params;
+  const wishId = new ObjectId(id);
   const wishes = await WishesModel();
 
   await wishes.deleteOne({ _id: wishId });
